@@ -1,6 +1,7 @@
 
 package testesJunit;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import jpa.EntityManagerUtil;
 import junit.framework.Assert;
@@ -15,11 +16,11 @@ import static org.junit.Assert.*;
  *
  * @author edudieguez
  */
-public class TestePersistirEstado {
+public class TesteListar {
     
     EntityManager em;
     
-    public TestePersistirEstado() {
+    public TesteListar() {
     }
     
     @Before
@@ -36,13 +37,14 @@ public class TestePersistirEstado {
     public void teste(){
         boolean exception = false;
         try {
-            Estado e = new Estado();
-            e.setNome("São Paulo");
-            e.setUf("SP");
-            e.setPais(em.find(Pais.class, 6));
-            em.getTransaction().begin();
-            em.persist(e);
-            em.getTransaction().commit();
+
+            String jpql = "from Estado order by nome";
+            List<Estado> lista = em.createQuery(jpql).getResultList();
+            for (Estado e : lista) {
+                System.out.println("UF: "+ e.getUf()+ " - País: "+ e.getPais().getNome());
+            }
+            
+            
             
         } catch (Exception e) {
             exception = true;
