@@ -5,25 +5,24 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.security.auth.login.Configuration;
+import jpa.EntityManagerUtil;
 import modelo.Pais;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class ExcluirPaisDAO {
 
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("aulaJpaPU");
-        EntityManager em = emf.createEntityManager();
-
-        Pais p = em.find(Pais.class, 4);
+        EntityManager em = EntityManagerUtil.getEM();
+        
+        Pais p = em.find(Pais.class, 2);
 
         em.getTransaction().begin();
         em.remove(p);
         em.getTransaction().commit();
-        em.close();
-        emf.close();
 
+        EntityManagerUtil.closeFactory_EM();
+        
         System.out.println("Pais: " + p.getNome());
-
     }
 
 }
