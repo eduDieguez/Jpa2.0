@@ -15,16 +15,14 @@ public class ExcluirPaisDAO {
         EntityManager em = emf.createEntityManager();
 
         Pais p = em.find(Pais.class, 4);
-        
+
         em.getTransaction().begin();
         em.remove(p);
         em.getTransaction().commit();
         em.close();
         emf.close();
-        
+
         System.out.println("Pais: " + p.getNome());
-        
-        
 
     }
 

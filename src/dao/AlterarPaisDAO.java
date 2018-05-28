@@ -15,19 +15,17 @@ public class AlterarPaisDAO {
         EntityManager em = emf.createEntityManager();
 
         Pais p = em.find(Pais.class, 3);
-        
+
         p.setIso("ARG");
         p.setNome("Argentina");
-        
+
         em.getTransaction().begin();
         em.merge(p);
         em.getTransaction().commit();
         em.close();
         emf.close();
-        
+
         System.out.println("Pais: " + p.getNome());
-        
-        
 
     }
 
