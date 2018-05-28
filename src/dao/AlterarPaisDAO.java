@@ -19,9 +19,9 @@ public class AlterarPaisDAO {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("aulaJpaPU");
         EntityManager em = emf.createEntityManager();
 
-        Pais p = em.find(Pais.class, 3);
-        p.setIso("ARG");
-        p.setNome("Argentina");
+        Pais p = em.find(Pais.class, 5);
+        p.setIso("URUG");
+        p.setNome("Uruguai - Tchê");
 
         em.getTransaction().begin();
         Validator validador = Validation.buildDefaultValidatorFactory().getValidator();
