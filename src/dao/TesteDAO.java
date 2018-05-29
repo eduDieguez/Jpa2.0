@@ -14,7 +14,7 @@ public class TesteDAO {
 
         Teste t = new Teste();
 
-        t.setNome("Moreira Mello");
+        t.setNome("Fabio de Mello");
 
         em.getTransaction().begin();
         em.persist(t);
@@ -24,8 +24,8 @@ public class TesteDAO {
 
         Pais p = new Pais();
 
-        p.setNome("Kazaquistão");
-        p.setIso("KAZ");
+        p.setNome("Venezuela");
+        p.setIso("VEN");
 
         em.getTransaction().begin();
         em.persist(p);

@@ -37,9 +37,9 @@ public class TestePersistirEstado {
         boolean exception = false;
         try {
             Estado e = new Estado();
-            e.setNome("São Paulo");
-            e.setUf("SP");
-            e.setPais(em.find(Pais.class, 6));
+            e.setNome("Andrazito");
+            e.setUf("ML");
+            e.setPais(em.find(Pais.class, 7));
             em.getTransaction().begin();
             em.persist(e);
             em.getTransaction().commit();
